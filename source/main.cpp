@@ -776,6 +776,7 @@ int main(int argc, char **argv)
 
 	
 	arraymain.clear();
+	arraymain.push_back("Enable writing in ProdInfo. (Firmware 9.1.0)");
 	arraymain.push_back("Enable writing in ProdInfo. (Firmware 9.0.0/9.0.1)");
 	arraymain.push_back("Enable writing in ProdInfo. (Firmware 8.1.0)");
 	arraymain.push_back("Enable writing in ProdInfo. (Firmware 8.0.0 and Older)");
@@ -890,7 +891,16 @@ int main(int argc, char **argv)
 			case prodinfoenabler:
 
 
-
+				if (arraymain[selectchapter].compare("Enable writing in ProdInfo. (Firmware 9.1.0)") == 0)
+				{
+#ifdef __SWITCH__
+					ams = "romfs:/ams_mitm910.kip";
+#else
+					ams = "C:/respaldo2017/C++/UtilityNX/Debug/ams_mitm910.kip";
+#endif
+					enablewriting();
+					ready = true;
+				}
 
 				if (arraymain[selectchapter].compare("Enable writing in ProdInfo. (Firmware 9.0.0/9.0.1)") == 0)
 				{
@@ -1054,7 +1064,16 @@ int main(int argc, char **argv)
 					case prodinfoenabler:
 						
 				
-
+						if (arraymain[selectchapter].compare("Enable writing in ProdInfo. (Firmware 9.1.0)") == 0)
+						{
+#ifdef __SWITCH__
+							ams = "romfs:/ams_mitm910.kip";
+#else
+							ams = "C:/respaldo2017/C++/UtilityNX/Debug/ams_mitm910.kip";
+#endif
+							enablewriting();
+							ready = true;
+						}
 						
 						if (arraymain[selectchapter].compare("Enable writing in ProdInfo. (Firmware 9.0.0/9.0.1)") == 0)
 						{
